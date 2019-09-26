@@ -68,9 +68,6 @@ def buy():
     """Buy shares of stock"""
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
-        if request.form.get("symbol") == "Jimbobo":
-            return apology("get pranked cutie ;)", 69)
-
         stonk=lookup(request.form.get("symbol"))
 
         # Ensure symbol was submitted
