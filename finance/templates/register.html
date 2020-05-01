@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/register" method="post">
+    <form action="/register" method="POST" id="myForm">
         <div class="form-group">
             <input autocomplete="off" autofocus class="form-control" name="username"
                 placeholder="Username" type="text" id ="username">
@@ -26,18 +26,16 @@
                 event.preventDefault();
                 let username = document.getElementsByName('username')[0].value;
                 $.get ('/check?username=' + username, function(data){
-                    document.querySelector('ul').innerHTML = data;
                     if (data == false)
                     {
-                        alert("username taken bruh");
+                        alert("username taken!");
                     }
                     else
                     {
-                        mySubmit.submit();
+                        document.getElementById('myForm').submit();
                     }
                 });
             };
         });
     </script>
 {% endblock %}
-
